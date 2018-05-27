@@ -12,7 +12,7 @@ export class ClientService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getJSONData(url: string): Observable<Post[]>{
-    return this.httpClient.get<Post[]>(this.baseApi+url);
+  async getJSONData(url: string): Promise<any[]>{
+    return await this.httpClient.get<any[]>(this.baseApi+url).toPromise();
   }
 }

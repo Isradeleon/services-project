@@ -20,11 +20,13 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/user.png"
             ],
             "styles": [
               "src/styles.css",
-              "src/bulma.min.css"
+              "src/bulma.min.css",
+              "src/assets/fa/fontawesome-all.min.css"
             ],
             "scripts": []
           },
