@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-content">
-    <div class="media">
+    <!--div class="media">
       <div class="media-left">
         <figure class="image is-64x64">
           <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
@@ -10,7 +10,7 @@
         <p class="title is-6">{{ post ? (post.user ? post.user.name : 'No name'): 'nodata' }}</p>
         <p class="subtitle is-sm">{{ post ? (post.user ? post.user.email: 'No email'): 'nodata' }}</p>
       </div>
-    </div>
+    </div-->
 
     <p class="title is-4">
       {{ post ? post.title : 'notitle' }}
@@ -24,4 +24,5 @@
     </div>
   </div>
 </div>
+
 <app-comments></app-comments>

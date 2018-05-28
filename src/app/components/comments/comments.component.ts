@@ -12,6 +12,7 @@ export class CommentsComponent implements OnInit {
   postId: string;
 
   comments: Comment[];
+  commentsCount: number = 0;
   
   constructor(private clientService: ClientService, private route: ActivatedRoute) { }
 
@@ -19,6 +20,7 @@ export class CommentsComponent implements OnInit {
     this.postId = this.route.snapshot.paramMap.get('id');
 
     this.comments = await this.clientService.getJSONData('posts/'+this.postId+"/comments");
+    this.commentsCount = this.comments.length;
   }
 
 }
