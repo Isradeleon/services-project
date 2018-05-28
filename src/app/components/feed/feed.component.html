@@ -25,12 +25,12 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">
+      <a [routerLink]="['/post', post.id]" class="card-footer-item">
         <i class="fa fa-comments"></i>
       </a>
-      <a [routerLink]="['/post', post.id]" class="card-footer-item">
+      <!--a class="card-footer-item">
         <i class="fa fa-book-open"></i>
-      </a>
+      </a-->
     </footer>
   </div>
 </section>

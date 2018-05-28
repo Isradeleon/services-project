@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    FeedComponent
+    FeedComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

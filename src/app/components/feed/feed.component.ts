@@ -33,6 +33,8 @@ export class FeedComponent implements OnInit {
     postsO.subscribe((p: Post) => {
       usersO.pipe(filter(u => u.id === p.userId)).subscribe(res => p.user = res)
     });
+
+    this.clientService.changeCurrentPost(this.posts);
   }
 
 }

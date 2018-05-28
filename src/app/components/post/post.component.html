@@ -1,3 +1,27 @@
-<p>
-  post works!
-</p>
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-6">{{ post ? (post.user ? post.user.name : 'No name'): 'nodata' }}</p>
+        <p class="subtitle is-sm">{{ post ? (post.user ? post.user.email: 'No email'): 'nodata' }}</p>
+      </div>
+    </div>
+
+    <p class="title is-4">
+      {{ post ? post.title : 'notitle' }}
+    </p>
+    
+    <div class="content">
+      {{ post ? post.body: 'nobody' }}
+      <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
+  </div>
+</div>
+<app-comments></app-comments>
