@@ -1,0 +1,10 @@
+<section *ngIf="dataReady">
+
+  <div id="photos">
+    <span *ngFor="let pic of pictures">
+      <img src="{{ pic.thumbnailUrl }}" alt="{{ pic.title }}" onclick="onClick(this)">
+      <input type="hidden" value="{{ pic.url }}">
+    </span>
+  </div>
+
+</section>

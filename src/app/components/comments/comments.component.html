@@ -3,7 +3,7 @@
 </p>
 <br>
 <section *ngIf="dataReady">
-  <div *ngFor="let comment of comments">
+  <div *ngFor="let comment of comments index as i;">
     <article class="media">
       <figure class="media-left">
         <p class="image is-32x32">

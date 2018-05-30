@@ -10,6 +10,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { UserComponent } from './components/user/user.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { TodosComponent } from './components/todos/todos.component';
+import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TodosComponent } from './components/todos/todos.component';
     CommentsComponent,
     UserComponent,
     GalleryComponent,
-    TodosComponent
+    TodosComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
