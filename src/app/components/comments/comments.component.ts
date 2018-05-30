@@ -8,8 +8,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-  //post is is used for the API request
   postId: string;
+
+  dataReady: boolean = false;
 
   comments: Comment[];
   commentsCount: number = 0;
@@ -22,9 +23,8 @@ export class CommentsComponent implements OnInit {
     this.clientService.getJSONData('posts/'+this.postId+"/comments").subscribe(val => {
       this.comments = val;
       this.commentsCount = this.comments.length;
+      this.dataReady = true;
     });
-    //this.comments = await this.clientService.getJSONData('posts/'+this.postId+"/comments");
-    //this.commentsCount = this.comments.length;
   }
 
 }

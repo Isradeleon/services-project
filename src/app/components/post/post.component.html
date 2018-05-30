@@ -9,26 +9,26 @@
     <section *ngIf="dataReady">
       <div class="media">
         <div class="media-left">
-          <figure class="image is-128x128">
+          <figure class="image is-48x48">
             <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
           </figure>
         </div>
         <div class="media-content">
-          <p>{{ user ? user.name : 'noname' }}</p>
-          <p>{{ user ? user.email : 'noemail' }}</p>
-          <p>
+          <p><b>{{ user ? user.name : 'noname' }}</b></p>
+          <p><small>{{ user ? user.email : 'noemail' }}</small></p>
+          <!--p>
             <b>Phone:</b> {{ user ? user.phone : 'nophone' }} <br>
             <b>Website:</b> {{ user ? user.website : 'nowebsite' }}
-          </p>
+          </p-->
         </div>
       </div>
       <br>
-      <h4 style="text-align: center"> <b> {{ post ? post.title : 'notitle' }} </b> </h4>
+      <h4 class="is-size-4" style="text-align: center"> <b> {{ post ? post.title : 'notitle' }} </b> </h4>
       <br>
-      <p>{{ post ? post.body: 'nobody' }}</p>
+      <p class="content">{{ post ? post.body: 'nobody' }}</p>
     </section>
     
-    <br>
+    <br><br>
     <!--p>
       <button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button>
     </p-->

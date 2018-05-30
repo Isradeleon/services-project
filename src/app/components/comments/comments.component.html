@@ -1,36 +1,39 @@
-<p>
+<p *ngIf="dataReady">
   <b>Comments ({{ commentsCount }})</b>
-</p><br>
-<div *ngFor="let comment of comments">
-  <article class="media">
-    <figure class="media-left">
-      <p class="image is-48x48">
-        <img src="assets/user.png">
-      </p>
-    </figure>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <small>{{ comment.email }}</small>
-          <br>
-          <b class="is-size-5">{{ comment.name }}</b><br>
-          {{ comment.body }}
+</p>
+<br>
+<section *ngIf="dataReady">
+  <div *ngFor="let comment of comments">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-32x32">
+          <img src="assets/user.png">
         </p>
-      </div>
-      <!--nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-reply"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-heart"></i></span>
-          </a>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <small>{{ comment.email }}</small>
+            <br>
+            <b>{{ comment.name }}</b><br>
+            {{ comment.body }}
+          </p>
         </div>
-      </nav-->
-    </div>
-  </article>
-  <hr *ngIf="comments.indexOf(comment) != comments.length-1" class="w3-opacity">
-</div>
+        <!--nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-reply"></i></span>
+            </a>
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+            </a>
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-heart"></i></span>
+            </a>
+          </div>
+        </nav-->
+      </div>
+    </article>
+    <hr *ngIf="comments.indexOf(comment) != comments.length-1" class="w3-opacity">
+  </div>
+</section>
