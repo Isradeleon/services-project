@@ -17,10 +17,24 @@ export class UserComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private clientService: ClientService) { }
 
-  async ngOnInit() {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+  ngOnInit() {
+    /*this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.user = (await this.clientService.getJSONDataPromise("users?id="+this.id))[0];
-    this.userData = true;
+    this.userData = true;*/
+
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.userData = false;
+      /*this.clientService.getJSONData("users?id="+this.id).toPromise()
+      .then(result => {  });*/
+
+      this.clientService.getJSONData("users?id="+this.id).subscribe(res => {
+        this.user = res[0];
+        this.userData = true;
+      });
+
+    });
+
   }
 
   setShowing(showing: number){

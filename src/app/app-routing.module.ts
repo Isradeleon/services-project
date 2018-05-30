@@ -7,13 +7,15 @@ import { PostComponent } from './components/post/post.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './auth.service';
+import { PreventloginService } from './preventlogin.service';
 
 const routes: Routes = [
-  { path: '', component: FeedComponent },
-  { path: 'post/:id', component: PostComponent },
-  { path: 'comments/:id', component: CommentsComponent },
-  { path: 'user/:id', component: UserComponent },
-  { path: 'signin', component: LoginComponent }
+  { path: '', component: FeedComponent, canActivate:[AuthService] },
+  { path: 'post/:id', component: PostComponent, canActivate:[AuthService] },
+  { path: 'comments/:id', component: CommentsComponent, canActivate:[AuthService] },
+  { path: 'user/:id', component: UserComponent, canActivate:[AuthService]  },
+  { path: 'signin', component: LoginComponent, canActivate:[PreventloginService] }
 ];
 
 @NgModule({

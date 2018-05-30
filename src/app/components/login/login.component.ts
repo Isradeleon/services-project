@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ClientService } from '../../client.service';
+import { User } from '../../classes/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,9 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor() { }
+  constructor(
+    private clientService: ClientService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,9 +26,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
-    console.log(f)
+    const username = f.value.username;
+    const password = f.value.password;
+    
+    if(password === '1234'){
+      this.clientService.getJSONData("users?username="+username).subscribe(res => {
+        console.log(res);
+        if(res){
+          const user: User = res[0];
+          localStorage.setItem("userId",""+user.id);
+          this.router.navigate(['/']);
+        }
+      });
+    }
   }
 
 }
