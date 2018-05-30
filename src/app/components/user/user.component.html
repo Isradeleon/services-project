@@ -1,46 +1,48 @@
-<div class="media">
-  <div class="media-left">
-    <figure class="image is-128x128">
-      <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
-    </figure>
+<section class="profile w3-container w3-padding-32">
+  <div class="media">
+    <div class="media-left">
+      <figure class="image is-128x128">
+        <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <p class="title is-4">{{ user ? user.name : 'noname' }}</p>
+      <p class="subtitle is-5">{{ user ? user.email : 'noemail' }}</p>
+      <p class="subtitle is-6">
+        <strong>Phone:</strong> {{ user ? user.phone : 'nophone' }} <br>
+        <strong>Website:</strong> {{ user ? user.website : 'nowebsite' }}
+      </p>
+    </div>
   </div>
-  <div class="media-content">
-    <p class="title is-4">{{ user ? user.name : 'noname' }}</p>
-    <p class="subtitle is-5">{{ user ? user.email : 'noemail' }}</p>
-    <p class="subtitle is-6">
-      <strong>Phone:</strong> {{ user ? user.phone : 'nophone' }} <br>
-      <strong>Website:</strong> {{ user ? user.website : 'nowebsite' }}
-    </p>
+  
+  <br>
+  
+  <div class="tabs is-centered">
+    <ul>
+      <li (click)="setShowing(1)" [ngClass]="{'is-active': showing==1}">
+        <a>
+          <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
+          <span>Posts</span>
+        </a>
+      </li>
+      <li (click)="setShowing(2)" [ngClass]="{'is-active': showing==2}">
+        <a>
+          <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+          <span>Albums</span>
+        </a>
+      </li>
+      <li (click)="setShowing(3)" [ngClass]="{'is-active': showing==3}">
+        <a>
+          <span class="icon is-small"><i class="fas fa-check-square" aria-hidden="true"></i></span>
+          <span>To do's</span>
+        </a>
+      </li>
+    </ul>
   </div>
-</div>
-
-<br>
-
-<div class="tabs is-centered">
-  <ul>
-    <li (click)="setShowing(1)" [ngClass]="{'is-active': showing==1}">
-      <a>
-        <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
-        <span>Posts</span>
-      </a>
-    </li>
-    <li (click)="setShowing(2)" [ngClass]="{'is-active': showing==2}">
-      <a>
-        <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
-        <span>Albums</span>
-      </a>
-    </li>
-    <li (click)="setShowing(3)" [ngClass]="{'is-active': showing==3}">
-      <a>
-        <span class="icon is-small"><i class="fas fa-check-square" aria-hidden="true"></i></span>
-        <span>To do's</span>
-      </a>
-    </li>
-  </ul>
-</div>
-
-<section>
-  <app-feed *ngIf="showing == 1 && userData == true" [userFeed] = "user"></app-feed>
-  <app-gallery *ngIf="showing == 2 && userData == true" [userGallery] = "user"></app-gallery>
-  <app-todos *ngIf="showing == 3 && userData == true" [userTodos] = "user"></app-todos>
+  
+  <section>
+    <app-feed *ngIf="showing == 1 && userData == true" [userFeed] = "user"></app-feed>
+    <app-gallery *ngIf="showing == 2 && userData == true" [userGallery] = "user"></app-gallery>
+    <app-todos *ngIf="showing == 3 && userData == true" [userTodos] = "user"></app-todos>
+  </section>
 </section>
