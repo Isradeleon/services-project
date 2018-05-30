@@ -1,4 +1,6 @@
-<p class="title is-6">Comments ({{ commentsCount }})</p>
+<p>
+  <b>Comments ({{ commentsCount }})</b>
+</p><br>
 <div *ngFor="let comment of comments">
   <article class="media">
     <figure class="media-left">
@@ -11,7 +13,7 @@
         <p>
           <small>{{ comment.email }}</small>
           <br>
-          <strong>{{ comment.name }}</strong><br>
+          <span>{{ comment.name }}</span><br>
           {{ comment.body }}
         </p>
       </div>
@@ -30,5 +32,5 @@
       </nav-->
     </div>
   </article>
-  <hr>
+  <hr class="w3-opacity">
 </div>

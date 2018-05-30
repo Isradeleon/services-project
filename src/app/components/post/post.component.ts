@@ -6,6 +6,7 @@ import { from } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 import { Post } from '../../classes/Post'
+import { User } from '../../classes/User';
 
 @Component({
   selector: 'app-post',
@@ -15,13 +16,20 @@ import { Post } from '../../classes/Post'
 export class PostComponent implements OnInit {
   id: number;
   post: Post;
+  user: User;
+  dataReady: boolean;
 
-  constructor(private route: ActivatedRoute, private clientService: ClientService) {  }
+  constructor(private route: ActivatedRoute, private clientService: ClientService) { 
+    this.dataReady = false;
+  }
 
   async ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.post = await this.clientService.getJSONDataPromise('posts/'+this.id);
+    this.user = (await this.clientService.getJSONDataPromise('users?id='+this.post.userId))[0];
+
+    this.dataReady = true;
   }
 
 }

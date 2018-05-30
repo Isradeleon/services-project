@@ -1,0 +1,10 @@
+<section>
+  <table class="table is-hoverable is-fullwidth">
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.title }}</td>
+        <td style="text-align: center;"><i [ngClass] = "{ 'fa fa-check' : todo.completed }"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,16 +1,35 @@
 <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
   
   <div class="w3-content w3-justify" style="max-width:600px">
-    <h4 style="text-align: center"> <b> {{ post ? post.title : 'notitle' }} </b> </h4>
-    <br>
-    <p>{{ post ? post.body: 'nobody' }}</p>
-    <p>mail: example@example.com</p>
-    <p>tel: 5353 35531</p>
+
+    <section class="spinner-holder" *ngIf="!dataReady">
+      <i class="fas fa-spinner fa-pulse"></i>
+    </section>
+
+    <section *ngIf="dataReady">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-128x128">
+            <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p>{{ user ? user.name : 'noname' }}</p>
+          <p>{{ user ? user.email : 'noemail' }}</p>
+          <p>
+            <b>Phone:</b> {{ user ? user.phone : 'nophone' }} <br>
+            <b>Website:</b> {{ user ? user.website : 'nowebsite' }}
+          </p>
+        </div>
+      </div>
+      <br>
+      <h4 style="text-align: center"> <b> {{ post ? post.title : 'notitle' }} </b> </h4>
+      <br>
+      <p>{{ post ? post.body: 'nobody' }}</p>
+    </section>
     
     <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p>
-    
-    <hr class="w3-opacity">
-    
+
     <app-comments></app-comments>
   </div>
 

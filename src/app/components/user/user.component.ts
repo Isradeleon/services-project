@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserComponent implements OnInit {
   id: number;
   user: User;
-  data: boolean = false;
+  userData: boolean = false;
 
   showing: number = 1;
 
@@ -20,8 +20,11 @@ export class UserComponent implements OnInit {
   async ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.user = (await this.clientService.getJSONDataPromise("users?id="+this.id))[0];
-    this.data = true;
-    console.log(this.user);
+    this.userData = true;
+  }
+
+  setShowing(showing: number){
+    this.showing = showing;
   }
 
 }

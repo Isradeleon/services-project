@@ -1,4 +1,8 @@
-<section style="padding: 2rem">
+<div class="spinner-holder" *ngIf="!dataReady">
+  <i class="fas fa-spinner fa-pulse"></i>
+</div>
+
+<section *ngIf="dataReady" style="padding: 2rem">
   <div *ngFor="let post of posts" class="card">
     <div class="card-content">
       <a [routerLink]="['user',post.userId]" class="media">
@@ -27,9 +31,9 @@
       <a [routerLink]="['/post', post.id]" class="card-footer-item">
         <i class="fa fa-comments"></i>
       </a>
-      <!--a class="card-footer-item">
-        <i class="fa fa-book-open"></i>
-      </a-->
+      <a class="card-footer-item">
+        <i class="fa fa-heart"></i>
+      </a>
     </footer>
   </div>
 </section>

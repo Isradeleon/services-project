@@ -13,15 +13,16 @@ import { User } from '../../classes/User';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-  // api strings
   @Input() userFeed: User;
+
+  dataReady: boolean = false;
 
   // properties
   posts: Post[];
   users: User[];
 
   constructor(private clientService: ClientService) {
-    
+    this.dataReady = false;
   }
 
   async ngOnInit() {
@@ -37,6 +38,8 @@ export class FeedComponent implements OnInit {
     postsO.subscribe((p: Post) => {
       usersO.pipe(filter(u => u.id === p.userId)).subscribe(res => p.user = res)
     });
+
+    this.dataReady = true;
   }
 
 }

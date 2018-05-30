@@ -18,19 +18,19 @@
 
 <div class="tabs is-centered">
   <ul>
-    <li class="is-active">
+    <li (click)="setShowing(1)" [ngClass]="{'is-active': showing==1}">
       <a>
         <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
         <span>Posts</span>
       </a>
     </li>
-    <li>
+    <li (click)="setShowing(2)" [ngClass]="{'is-active': showing==2}">
       <a>
         <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
         <span>Albums</span>
       </a>
     </li>
-    <li>
+    <li (click)="setShowing(3)" [ngClass]="{'is-active': showing==3}">
       <a>
         <span class="icon is-small"><i class="fas fa-check-square" aria-hidden="true"></i></span>
         <span>To do's</span>
@@ -40,5 +40,7 @@
 </div>
 
 <section>
-  <app-feed *ngIf="showing == 1 && data == true" [userFeed] = "user"  ></app-feed>
+  <app-feed *ngIf="showing == 1 && userData == true" [userFeed] = "user"></app-feed>
+  <app-gallery *ngIf="showing == 2 && userData == true" [userGallery] = "user"></app-gallery>
+  <app-todos *ngIf="showing == 3 && userData == true" [userTodos] = "user"></app-todos>
 </section>

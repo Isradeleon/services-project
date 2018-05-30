@@ -8,6 +8,8 @@ import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserComponent } from './components/user/user.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { TodosComponent } from './components/todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { UserComponent } from './components/user/user.component';
     PostComponent,
     FeedComponent,
     CommentsComponent,
-    UserComponent
+    UserComponent,
+    GalleryComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
