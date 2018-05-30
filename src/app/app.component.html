@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar is-transparent is-fixed-top">
+<!--nav class="navbar is-transparent is-fixed-top">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
       <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
@@ -78,4 +78,27 @@
   <div class="column is-three-fifths is-offset-one-fifth">
     <router-outlet></router-outlet>
   </div>
-</section>
+</section-->
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>ANGULAR</b></h3>
+  <a class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+  <a routerLink="" class="w3-bar-item w3-button">Home</a> 
+  <!--a class="w3-bar-item w3-button">ABOUT ME</a> 
+  <a class="w3-bar-item w3-button">CONTACT</a-->
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">ANGULAR</span>
+  <a class="w3-right w3-button w3-white">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+  <router-outlet></router-outlet>
+</div>
