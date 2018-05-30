@@ -16,11 +16,15 @@ export class CommentsComponent implements OnInit {
   
   constructor(private clientService: ClientService, private route: ActivatedRoute) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.postId = this.route.snapshot.paramMap.get('id');
 
-    this.comments = await this.clientService.getJSONData('posts/'+this.postId+"/comments");
-    this.commentsCount = this.comments.length;
+    this.clientService.getJSONData('posts/'+this.postId+"/comments").subscribe(val => {
+      this.comments = val;
+      this.commentsCount = this.comments.length;
+    });
+    //this.comments = await this.clientService.getJSONData('posts/'+this.postId+"/comments");
+    //this.commentsCount = this.comments.length;
   }
 
 }

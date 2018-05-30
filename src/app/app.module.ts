@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     FeedComponent,
-    CommentsComponent
+    CommentsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

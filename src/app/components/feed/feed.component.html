@@ -1,7 +1,7 @@
 <section style="padding: 2rem">
   <div *ngFor="let post of posts" class="card">
     <div class="card-content">
-      <div class="media">
+      <a [routerLink]="['user',post.userId]" class="media">
         <div class="media-left">
           <figure class="image is-48x48">
             <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
@@ -11,7 +11,7 @@
           <p class="title is-6">{{ post.user ? post.user.name : 'No name' }}</p>
           <p class="subtitle is-sm">{{ post.user ? post.user.email: 'No email' }}</p>
         </div>
-      </div>
+      </a>
 
       <p class="title is-4">
         {{ post.title }}
@@ -19,7 +19,6 @@
       
       <div class="content">
         {{ post.body }}
-        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
         <br>
         <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
       </div>

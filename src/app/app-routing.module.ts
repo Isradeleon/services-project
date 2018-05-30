@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { PostComponent } from './components/post/post.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   { path: '', component: FeedComponent },
   { path: 'post/:id', component: PostComponent },
-  { path: 'comments/:id', component: CommentsComponent }
+  { path: 'comments/:id', component: CommentsComponent },
+  { path: 'user/:id', component: UserComponent }
 ];
 
 @NgModule({

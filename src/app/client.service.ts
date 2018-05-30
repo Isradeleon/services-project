@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Post } from './classes/Post';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,11 @@ export class ClientService {
 
   constructor(private httpClient: HttpClient) { }
 
-  async getJSONData(url: string): Promise<any>{
-    return await this.httpClient.get<any>(this.baseApi+url).toPromise();
+  getJSONData(url: string): Observable<any>{
+    return this.httpClient.get<any>(this.baseApi+url);
   }
 
+  getJSONDataPromise(url: string): Promise<any>{
+    return this.httpClient.get<any>(this.baseApi+url).toPromise();
+  }
 }
