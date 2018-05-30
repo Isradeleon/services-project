@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PostComponent } from './components/post/post.component';
@@ -11,6 +12,7 @@ import { UserComponent } from './components/user/user.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { PhotosComponent } from './components/photos/photos.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { PhotosComponent } from './components/photos/photos.component';
     UserComponent,
     GalleryComponent,
     TodosComponent,
-    PhotosComponent
+    PhotosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
