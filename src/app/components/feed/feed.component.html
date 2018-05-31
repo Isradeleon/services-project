@@ -1,18 +1,20 @@
-<div class="spinner-holder" *ngIf="!dataReady">
-  <i class="fas fa-spinner fa-pulse"></i>
-</div>
+<section class="columns" *ngIf="!dataReady">
+  <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+    <i class="fas fa-spinner fa-pulse"></i>
+  </div>
+</section>
 
 <section *ngIf="dataReady" style="padding: 2rem">
   <div *ngFor="let post of posts" class="card">
     <div class="card-content">
-      <a [routerLink]="['user',post.userId]" class="media">
+      <a [routerLink]="['/user',post.userId]" class="media">
         <div class="media-left">
           <figure class="image is-48x48">
             <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-6">{{ post.user ? post.user.name : 'No name' }}</p>
+          <p class="title is-6">{{ post.user ? post.user.name : 'No name' }} <small>@{{ post.user.username }}</small></p>
           <p class="subtitle is-sm">{{ post.user ? post.user.email: 'No email' }}</p>
         </div>
       </a>
@@ -24,7 +26,7 @@
       <div class="content">
         {{ post.body }}
         <br>
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <!--time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time-->
       </div>
     </div>
     <footer class="card-footer">

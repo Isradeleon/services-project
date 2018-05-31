@@ -23,13 +23,19 @@ export class PostComponent implements OnInit {
     this.dataReady = false;
   }
 
-  async ngOnInit() {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.dataReady = false;
+      
+      this.clientService
+      .getJSONData('posts/'+this.id+'?_expand=user&_embed=comments')
+      .subscribe(res => {
+        this.post = res;
+        this.dataReady = true;
+      });
 
-    this.post = await this.clientService.getJSONDataPromise('posts/'+this.id);
-    this.user = (await this.clientService.getJSONDataPromise('users?id='+this.post.userId))[0];
-
-    this.dataReady = true;
+    });
   }
 
 }

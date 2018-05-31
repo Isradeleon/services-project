@@ -13,33 +13,32 @@ import { User } from '../../classes/User';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-  @Input() userFeed: User;
-
   dataReady: boolean = false;
 
   // properties
-  posts: Post[];
-  users: User[];
+  @Input() posts: Post[];
 
   constructor(private clientService: ClientService) {
     this.dataReady = false;
   }
 
-  async ngOnInit() {
-    //this.clientService.getJSONData(this.userFeed ? "posts?userId="+this.userFeed.id : "posts").subscribe(val => {
-    //  this.posts = val;
-    //});
-    this.posts = await this.clientService.getJSONDataPromise(this.userFeed ? "posts?userId="+this.userFeed.id : "posts");
-    this.users = await this.clientService.getJSONDataPromise(this.userFeed ? "users?id="+this.userFeed.id : "users");
+  ngOnInit() {
 
-    const usersO = from(this.users);
-    const postsO = from(this.posts);
+    if(this.posts){
+      this.dataReady = true;
+    }else{
+      //var query = (this.userFeed ? 
+        //"posts?userId="+this.userFeed.id+"&_expand=user" : 
+        //"posts?_expand=user");
 
-    postsO.subscribe((p: Post) => {
-      usersO.pipe(filter(u => u.id === p.userId)).subscribe(res => p.user = res)
-    });
+      this.dataReady = false;
+      this.clientService.getJSONData("posts?_expand=user").subscribe(res=>{
+        this.posts = res;
+        this.dataReady = true;
+      });
+    }
 
-    this.dataReady = true;
+  
   }
 
 }

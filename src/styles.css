@@ -1,20 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-.spinner-holder{
-    padding: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
-    display: block;
+.spinner-loader{
     text-align: center;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
 }
 
-.spinner-holder > i{
+i.fas.fa-spinner{
+    margin-top: 10vh;
     color: lightgrey;
-    font-size: 150px;
-    position: fixed;
+    font-size: 140px;
+    margin-bottom: 10vh
 }

@@ -2,8 +2,10 @@
   
   <div class="w3-content w3-justify" style="max-width:600px">
 
-    <section class="spinner-holder" *ngIf="!dataReady">
-      <i class="fas fa-spinner fa-pulse"></i>
+    <section class="columns" *ngIf="!dataReady">
+      <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+        <i class="fas fa-spinner fa-pulse"></i>
+      </div>
     </section>
 
     <section *ngIf="dataReady">
@@ -14,8 +16,8 @@
           </figure>
         </div>
         <div class="media-content">
-          <p><b>{{ user ? user.name : 'noname' }}</b></p>
-          <p><small>{{ user ? user.email : 'noemail' }}</small></p>
+          <p><b>{{ post.user.name }}</b></p>
+          <p><small>{{ post.user.email }}</small></p>
           <!--p>
             <b>Phone:</b> {{ user ? user.phone : 'nophone' }} <br>
             <b>Website:</b> {{ user ? user.website : 'nowebsite' }}
@@ -23,9 +25,9 @@
         </div>
       </div>
       <br>
-      <h4 class="is-size-4" style="text-align: center"> <b> {{ post ? post.title : 'notitle' }} </b> </h4>
+      <h4 class="is-size-4" style="text-align: center"> <b> {{ post.title }} </b> </h4>
       <br>
-      <p class="content">{{ post ? post.body: 'nobody' }}</p>
+      <p class="content">{{ post.body }}</p>
     </section>
     
     <br><br>
@@ -33,7 +35,7 @@
       <button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button>
     </p-->
 
-    <app-comments></app-comments>
+    <app-comments *ngIf="dataReady" [comments]="post.comments"></app-comments>
   </div>
 
 </div>

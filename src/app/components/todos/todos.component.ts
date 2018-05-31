@@ -9,18 +9,17 @@ import { Todo } from '../../classes/Todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  @Input() userTodos: User;
   dataReady: boolean = false;
 
-  todos: Todo[];
+  @Input() todos: Todo[];
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
-    this.clientService.getJSONData("todos?userId="+this.userTodos.id).subscribe(res => {
+    /*this.clientService.getJSONData("todos?userId="+this.userTodos.id).subscribe(res => {
       this.todos = res;
       this.dataReady = true;
-    });
+    });*/
   }
 
 }

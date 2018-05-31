@@ -1,4 +1,5 @@
 import { User } from './User';
+import { Comment } from './Comment';
 
 export class Post {
     userId: number;
@@ -6,4 +7,5 @@ export class Post {
     title: string;
     body: string;
     user: User;
+    comments: Comment[];
 }

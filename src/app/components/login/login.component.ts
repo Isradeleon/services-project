@@ -29,16 +29,16 @@ export class LoginComponent implements OnInit {
     const username = f.value.username;
     const password = f.value.password;
     
-    if(password === '1234'){
-      this.clientService.getJSONData("users?username="+username).subscribe(res => {
-        console.log(res);
-        if(res){
-          const user: User = res[0];
-          localStorage.setItem("userId",""+user.id);
-          this.router.navigate(['/']);
-        }
-      });
-    }
+    this.clientService.getJSONData("users?username_like="+username).subscribe(res => {
+      
+      if(res && res.length > 0 && password === '123'){
+        const user: User = res[0];
+        localStorage.setItem("userId",""+user.id);
+        this.router.navigate(['/']);
+      }
+      
+    });
+
   }
 
 }

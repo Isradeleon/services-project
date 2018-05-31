@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/User';
 import { ClientService } from '../../client.service';
 import { ActivatedRoute } from '@angular/router';
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user',
@@ -23,9 +25,14 @@ export class UserComponent implements OnInit {
       this.id = params['id'];
       this.userData = false;
 
-      this.clientService.getJSONData("users?id="+this.id).subscribe(res => {
+      this.clientService
+      .getJSONData("users?id="+this.id+"&_embed=posts&_embed=albums&_embed=todos")
+      .subscribe(res => {
         this.user = res[0];
-        this.userData = true;
+        
+        from(this.user.posts).pipe(map(val => val.user = this.user))
+        .subscribe(ending => this.userData = true);
+        
       });
 
     });

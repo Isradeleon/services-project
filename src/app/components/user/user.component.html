@@ -1,4 +1,9 @@
-<section class="profile w3-container w3-padding-32">
+<section class="columns" *ngIf="!userData">
+  <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+    <i class="fas fa-spinner fa-pulse"></i>
+  </div>
+</section>
+<section *ngIf="userData" class="profile w3-container w3-padding-32">
   <div class="media">
     <div class="media-left">
       <figure class="image is-128x128">
@@ -6,8 +11,8 @@
       </figure>
     </div>
     <div class="media-content">
-      <p class="title is-4">{{ user ? user.name : 'noname' }}</p>
-      <p class="subtitle is-5">{{ user ? user.email : 'noemail' }}</p>
+      <p class="title is-4">{{ user ? user.name : '...' }}</p>
+      <p class="subtitle is-5">{{ user ? user.email : '...' }}</p>
       <p class="subtitle is-6">
         <strong>Phone:</strong> {{ user ? user.phone : 'nophone' }} <br>
         <strong>Website:</strong> {{ user ? user.website : 'nowebsite' }}
@@ -41,8 +46,8 @@
   </div>
   
   <section>
-    <app-feed *ngIf="showing == 1 && userData == true" [userFeed] = "user"></app-feed>
-    <app-gallery *ngIf="showing == 2 && userData == true" [userGallery] = "user"></app-gallery>
-    <app-todos *ngIf="showing == 3 && userData == true" [userTodos] = "user"></app-todos>
+    <app-feed *ngIf="showing == 1 && userData" [posts] = "user.posts"></app-feed>
+    <app-gallery *ngIf="showing == 2 && userData" [albums] = "user.albums" [nameToShow]="user.name"></app-gallery>
+    <app-todos *ngIf="showing == 3 && userData" [todos] = "user.todos"></app-todos>
   </section>
 </section>

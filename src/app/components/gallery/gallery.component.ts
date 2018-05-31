@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ClientService } from '../../client.service';
 import { Album } from '../../classes/Album';
-import { User } from '../../classes/User';
 
 @Component({
   selector: 'app-gallery',
@@ -9,18 +7,17 @@ import { User } from '../../classes/User';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  @Input() userGallery: User;
   dataReady: boolean = false;
 
   album: Album = null;
 
-  albums: Album[];
+  @Input() albums: Album[];
 
-  constructor(private clientService: ClientService) { }
+  @Input() nameToShow: string;
 
-  async ngOnInit() {
-    this.albums = await this.clientService.getJSONDataPromise("albums?userId="+this.userGallery.id);
-    this.dataReady = true;
+  constructor() { }
+
+  ngOnInit() {  
   }
 
   setShowingPhotosForAlbum(index: number){
