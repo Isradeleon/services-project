@@ -4,7 +4,7 @@
   </div>
 </section>
 
-<section *ngIf="dataReady" style="padding: 2rem">
+<section *ngIf="dataReady" class="w3-container w3-padding-32">
   <div *ngFor="let post of posts" class="card">
     <div class="card-content">
       <a [routerLink]="['/user',post.userId]" class="media">

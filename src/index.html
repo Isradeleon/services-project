@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Google fonts Raleway -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <style>
   body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -18,27 +18,8 @@
 
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
+  
   <app-root></app-root>
 
-  <script>
-  // Script to open and close sidebar
-  function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-  }
-    
-  function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-  }
-  
-  // Modal Image Gallery
-  function onClick(element) {
-    document.getElementById("img01").src = element.nextSibling.value;
-    document.getElementById("modal01").style.display = "block";
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = element.alt;
-  }
-  </script>
 </body>
 </html>
