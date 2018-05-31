@@ -18,15 +18,10 @@ export class UserComponent implements OnInit {
   constructor(private route: ActivatedRoute, private clientService: ClientService) { }
 
   ngOnInit() {
-    /*this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.user = (await this.clientService.getJSONDataPromise("users?id="+this.id))[0];
-    this.userData = true;*/
-
+    
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.userData = false;
-      /*this.clientService.getJSONData("users?id="+this.id).toPromise()
-      .then(result => {  });*/
 
       this.clientService.getJSONData("users?id="+this.id).subscribe(res => {
         this.user = res[0];

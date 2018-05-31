@@ -4,7 +4,7 @@
   <a onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
   <a *ngIf="isLogged()" onclick="w3_close()" routerLink="" class="w3-bar-item w3-button">HOME</a>
   <a *ngIf="isLogged()" onclick="w3_close()" (click)="goToMyProfile()" class="w3-bar-item w3-button">MY PROFILE</a> 
-  <a (click)="logout()" class="w3-bar-item w3-button">LOG OUT</a>
+  <a *ngIf="isLogged()" (click)="logout()" class="w3-bar-item w3-button">LOG OUT</a>
 </nav>
 
 <!-- Top menu on small screens -->

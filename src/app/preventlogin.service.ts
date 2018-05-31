@@ -10,7 +10,7 @@ export class PreventloginService implements CanActivate {
 
   canActivate(): boolean{
     if(localStorage.getItem("userId")){
-      this.router.navigate(["signin"]);
+      this.router.navigate([""]);
       return false;
     }
     
