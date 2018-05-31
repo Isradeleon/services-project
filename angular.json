@@ -23,13 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/w3.css",
+              "src/css/w3.css",
               "src/styles.css",
-              "src/assets/css/bulma.min.css",
-              "src/assets/fa/fontawesome-all.min.css"
+              "src/css/bulma.min.css",
+              "src/css/fa/fontawesome-all.min.css"
             ],
             "scripts": [
-              "src/assets/js/w3_simple.js"
+              "src/js/w3_simple.js"
             ]
           },
           "configurations": {
