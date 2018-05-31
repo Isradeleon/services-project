@@ -10,6 +10,7 @@ export class AppComponent {
   constructor(private router: Router){}
 
   logout(){
+    localStorage.removeItem("userJSON");
     localStorage.removeItem("userId");
     this.router.navigate(["signin"]);
   }
