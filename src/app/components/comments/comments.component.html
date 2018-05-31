@@ -72,6 +72,11 @@
           </div>
         </nav-->
       </div>
+
+      <div *ngIf="isMyComment(comment)" class="media-right">
+        <button (click)="removeMe(i)" class="delete"></button>
+      </div>
+
     </article>
     <hr *ngIf="comments.indexOf(comment) != comments.length-1" class="w3-opacity">
   </div>

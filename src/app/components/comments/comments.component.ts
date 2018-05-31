@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ClientService } from '../../client.service';
 import { User } from '../../classes/User';
+import { Comment } from '../../classes/Comment';
 
 @Component({
   selector: 'app-comments',
@@ -27,6 +28,22 @@ export class CommentsComponent implements OnInit {
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
+  }
+
+  removeMe(i) {
+    const commentToDelete: Comment = this.comments[i];
+
+    this.comments.splice(i, 1);
+
+    this.clientService.deleteData("comments/"+commentToDelete.id).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
+  }
+
+  isMyComment(comment: Comment){
+    const myself: User = JSON.parse(localStorage.getItem("userJSON"));
+    return comment.email === myself.email;
   }
 
   onSubmit(f: NgForm){
