@@ -1,20 +1,33 @@
 <!-- Contact section -->
 <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+  
   <div class="w3-content" style="max-width:600px">
-    <h4 class="w3-center"><b>SIGN IN TO ANGULAR</b></h4>
-    <p>Do you want to access ANGULAR network? Fill out the form with your username and password and sign in!</p>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div class="w3-section">
-        <label>Username</label>
-        <input ngModel class="w3-input w3-border" type="text" name="username" required>
+    
+    <section class="columns" *ngIf="dataLoading">
+      <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+        <i class="fas fa-spinner fa-pulse"></i>
       </div>
-      <div class="w3-section">
-        <label>Password</label>
-        <input ngModel class="w3-input w3-border" type="password" name="password" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom is-loading">Send Message</button>
-    </form>
+    </section>
+
+    <span *ngIf="!dataLoading">
+      <h4 class="w3-center"><b>SIGN IN TO ANGULAR</b></h4>
+      <p>Do you want to access ANGULAR network? Fill out the form with your username and password and sign in!</p>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="w3-section">
+          <label>Username</label>
+          <input [(ngModel)]="username" class="w3-input w3-border" type="text" name="username" required>
+        </div>
+        <div class="w3-section">
+          <label>Password</label>
+          <input [(ngModel)]="password" class="w3-input w3-border" type="password" name="password" required>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom is-loading">Send Message</button>
+      </form>
+
+    </span>
+
   </div>
+
 </div>
 
 <!-- Footer -->

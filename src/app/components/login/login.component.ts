@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
+  dataLoading: boolean;
+
   constructor(
     private clientService: ClientService,
     private router: Router) { }
@@ -20,14 +22,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginRequest() {
-    console.log(this.username);  // { first: '', last: '' }
-    console.log(this.password);  // false
-  }
-
   onSubmit(f: NgForm) {
     const username = f.value.username;
     const password = f.value.password;
+
+    this.dataLoading = true;
     
     this.clientService.getJSONData("users?username_like="+username).subscribe(res => {
       
@@ -36,7 +35,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userId",""+user.id);
         this.router.navigate(['/']);
       }
-      
+
+      this.dataLoading = false;
+
     });
 
   }
