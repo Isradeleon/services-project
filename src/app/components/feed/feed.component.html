@@ -75,8 +75,8 @@
       <a [routerLink]="['/post', post.id]" class="card-footer-item">
         <i class="far fa-comments"></i>
       </a>
-      <a class="card-footer-item">
-        <i class="far fa-heart"></i>
+      <a (click)="toggleLike(post)" class="card-footer-item">
+        <i class="{{ post.iLikeIt ? 'fas has-text-danger' : 'far' }} fa-heart"></i>
       </a>
     </footer>
   </div>

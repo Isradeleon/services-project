@@ -4,17 +4,17 @@
   <a onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large"><i class="fas fa-window-close"></i> CLOSE</a>
   <a *ngIf="isLogged()" onclick="w3_close()" routerLink="" class="w3-bar-item w3-button"><i class="fab fa-angular"></i> HOME</a>
   <a *ngIf="isLogged()" onclick="w3_close()" (click)="goToMyProfile()" class="w3-bar-item w3-button"><i class="far fa-user-circle"></i> MY PROFILE</a> 
-  <a *ngIf="isLogged()" (click)="logout()" class="w3-bar-item w3-button"><i class="far fa-share-square"></i> LOG OUT</a>
+  <a *ngIf="isLogged()" (click)="logout()" onclick="w3_close()" class="w3-bar-item w3-button"><i class="far fa-share-square"></i> LOG OUT</a>
 </nav>
 
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
   <span class="w3-left w3-padding"><img src="favicon.ico" alt="logo"> ANGULAR</span>
-  <a onclick="w3_open()" class="w3-right w3-button w3-white">☰</a>
+  <a *ngIf="isLogged()" onclick="w3_open()" class="w3-right w3-button w3-white">☰</a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
-<div onclick="w3_close()" class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div *ngIf="isLogged()" onclick="w3_close()" class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">

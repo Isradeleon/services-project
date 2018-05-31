@@ -18,7 +18,7 @@
         </figure>
       </div>
       <div class="media-content">
-        <p class="title is-4">{{ user ? user.name : '...' }}</p>
+        <p class="title is-4">{{ user ? user.name : '...' }} <small>@{{ user.username }}</small></p>
         <p class="subtitle is-5">{{ user ? user.email : '...' }}</p>
         <p class="subtitle is-6">
           <strong>Phone:</strong> {{ user ? user.phone : 'nophone' }} <br>

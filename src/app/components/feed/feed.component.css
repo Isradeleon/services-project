@@ -1,6 +1,7 @@
-.card-footer > a{
-    font-size: 1.3em;
+.card-footer > * {
+    font-size: 1.5em;
+    cursor: pointer;
 }
-.card{
+.card {
     margin-bottom: 1em;
 }

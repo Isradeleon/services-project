@@ -8,4 +8,5 @@ export class Post {
     body: string;
     user: User;
     comments: Comment[];
+    iLikeIt: boolean;
 }

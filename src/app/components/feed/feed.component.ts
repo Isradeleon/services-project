@@ -106,6 +106,10 @@ export class FeedComponent implements OnInit {
   
   }
 
+  toggleLike(post: Post){
+    post.iLikeIt = !post.iLikeIt;
+  }
+
   onSubmit(f: NgForm){
 
     if(this.title && this.title.trim() !== '' && this.body && this.body !== ''){
