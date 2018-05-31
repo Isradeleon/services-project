@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ClientService } from '../../client.service';
-import {ActivatedRoute} from '@angular/router';
+import { User } from '../../classes/User';
 
 @Component({
   selector: 'app-comments',
@@ -8,23 +9,53 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-  postId: string;
+  @Input() postId: string;
+
+  // data to post
+  name: string;
+  body: string;
 
   dataReady: boolean = true;
+
+  sendingData: boolean = false;
+
+  errorPosting: boolean = false;
 
   @Input() comments: Comment[];
   commentsCount: number = 0;
   
-  constructor(private clientService: ClientService, private route: ActivatedRoute) { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
-    /*this.postId = this.route.snapshot.paramMap.get('id');
+  }
 
-    this.clientService.getJSONData('posts/'+this.postId+"/comments").subscribe(val => {
-      this.comments = val;
-      this.commentsCount = this.comments.length;
-      this.dataReady = true;
-    });*/
+  onSubmit(f: NgForm){
+
+    if(this.name && this.name.trim() !== '' && this.body && this.body !== ''){
+
+      const myself: User = JSON.parse(localStorage.getItem("userJSON"));
+
+      this.errorPosting = false;
+
+      this.sendingData = true;
+
+      this.clientService.postJSONData("posts/"+this.postId+"/comments",{
+        name: this.name, body: this.body, email: myself.email
+      }).subscribe(res => {
+        this.name = '';
+        this.body = '';
+
+        this.sendingData = false;
+
+        console.log(res);
+        this.comments.unshift(res);
+
+      });
+
+    }else{
+      this.errorPosting = true;
+    }
+
   }
 
 }

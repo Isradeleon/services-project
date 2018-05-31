@@ -2,7 +2,7 @@
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
     <li (click)="backToAlbums()" [ngClass]="{'is-active': !album}"><a>{{ nameToShow }}'s albums</a></li>
-    <li [ngClass]="{'is-active': album}" *ngIf="album"><a aria-current="page">{{ album.title }}</a></li>
+    <li [ngClass]="{'is-active': album}" *ngIf="album"><a aria-current="page"><b>Album:</b> {{ album.title }}</a></li>
   </ul>
 </nav>
 <br>
@@ -10,7 +10,7 @@
   <table *ngIf="!album" class="table is-hoverable is-fullwidth">
     <tbody>
       <tr *ngFor="let ref of albums index as i" (click)="setShowingPhotosForAlbum(i)">
-        <td style="text-align: center;"><i class="fa fa-image"></i></td>
+        <td style="text-align: center;"><i class="far fa-images"></i></td>
         <td>{{ ref.title }}</td>
       </tr>
     </tbody>

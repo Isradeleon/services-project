@@ -5,19 +5,61 @@
 </section>
 
 <section *ngIf="dataReady" class="w3-container w3-padding-32">
-  <div *ngFor="let post of posts" class="card">
+
+  <article *ngIf="!sendingData" style="padding: 10px;" class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
+      </p>
+    </figure>
+    <div class="media-content">
+      
+      <section>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  
+          <div class="field">
+            <input [(ngModel)]="title" style="font-weight: bold" class="w3-input w3-border" type="text" name="title" placeholder="Add a title...">
+          </div>
+          <div class="field">
+            <p class="control">
+              <textarea [(ngModel)]="body" name="body" style="resize: none; font-size: 14pt;" rows="3" class="w3-input w3-border" placeholder="Post something..."></textarea>
+            </p>
+          </div>
+          
+          <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom"><i class="far fa-paper-plane"></i> Save post</button>
+  
+        </form>      
+  
+        <p *ngIf="errorPosting" class="has-text-danger has-text-centered">Fill the form!</p><br>
+
+      </section>
+      
+    </div>
+
+  </article>
+
+  <section *ngIf="sendingData" class="columns" >
+    <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+      <i class="fas fa-spinner fa-pulse"></i>
+    </div>
+  </section>
+
+  <div *ngFor="let post of staggeringPosts; let i = index" class="card" (@flyInOut.done)="doNext()" [@flyInOut]="'in'">
     <div class="card-content">
-      <a [routerLink]="['/user',post.userId]" class="media">
-        <div class="media-left">
+      <div class="media">
+        <a [routerLink]="['/user',post.userId]" class="media-left">
           <figure class="image is-48x48">
             <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
           </figure>
-        </div>
+        </a>
         <div class="media-content">
           <p class="title is-6">{{ post.user ? post.user.name : 'No name' }} <small>@{{ post.user.username }}</small></p>
           <p class="subtitle is-sm">{{ post.user ? post.user.email: 'No email' }}</p>
         </div>
-      </a>
+        <div *ngIf="isMyPost(post)" class="media-right">
+          <button (click)="removeMe(i)" class="delete"></button>
+        </div>
+      </div>
 
       <p class="title is-4">
         {{ post.title }}
@@ -31,10 +73,10 @@
     </div>
     <footer class="card-footer">
       <a [routerLink]="['/post', post.id]" class="card-footer-item">
-        <i class="fa fa-comments"></i>
+        <i class="far fa-comments"></i>
       </a>
       <a class="card-footer-item">
-        <i class="fa fa-heart"></i>
+        <i class="far fa-heart"></i>
       </a>
     </footer>
   </div>

@@ -15,13 +15,13 @@
       <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <div class="w3-section">
           <label>Username</label>
-          <input [(ngModel)]="username" class="w3-input w3-border" type="text" name="username" required>
+          <input [(ngModel)]="username" class="w3-input w3-border" type="text" name="username">
         </div>
         <div class="w3-section">
           <label>Password</label>
-          <input [(ngModel)]="password" class="w3-input w3-border" type="password" name="password" required>
+          <input [(ngModel)]="password" class="w3-input w3-border" type="password" name="password">
         </div>
-        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom is-loading">Sign in</button>
+        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom">Sign in</button>
       </form>
 
       <p *ngIf="error" class="has-text-danger has-text-centered">Authentication error!</p>

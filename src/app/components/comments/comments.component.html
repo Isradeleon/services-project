@@ -1,3 +1,42 @@
+<article *ngIf="!sendingData" style="padding: 10px;" class="media">
+  <figure class="media-left">
+    <p class="image is-32x32">
+      <img style="border-radius: 100%; object-fit: cover;" src="assets/user.png" alt="Placeholder image">
+    </p>
+  </figure>
+  <div class="media-content">
+    
+    <section>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+        <div class="field">
+          <input [(ngModel)]="name" style="font-weight: bold" class="w3-input w3-border" type="text" name="name" placeholder="Add a title...">
+        </div>
+        <div class="field">
+          <p class="control">
+            <textarea [(ngModel)]="body" name="body" style="resize: none;" rows="3" class="w3-input w3-border" placeholder="Post something..."></textarea>
+          </p>
+        </div>
+        
+        <button type="submit" class="w3-button w3-light-grey w3-padding-large w3-block w3-margin-botton"><i class="far fa-comment"></i> Send comment</button>
+
+      </form>      
+
+      <br>
+      <p *ngIf="errorPosting" class="has-text-centered">Fill the whole form for comment!</p><br>
+
+    </section>
+    
+  </div>
+
+</article>
+
+  <section *ngIf="sendingData" class="columns" >
+    <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+      <i class="fas fa-spinner fa-pulse"></i>
+    </div>
+  </section>
+
 <p *ngIf="dataReady">
   <b>{{ comments.length }} COMMENTS</b>
 </p>

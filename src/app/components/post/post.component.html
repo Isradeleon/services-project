@@ -31,11 +31,8 @@
     </section>
     
     <br><br>
-    <!--p>
-      <button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button>
-    </p-->
 
-    <app-comments *ngIf="dataReady" [comments]="post.comments"></app-comments>
+    <app-comments *ngIf="dataReady" [postId]="post.id" [comments]="post.comments"></app-comments>
   </div>
 
 </div>

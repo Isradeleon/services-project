@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       if(res && res.length > 0 && password === '123'){
         const user: User = res[0];
         localStorage.setItem("userId",""+user.id);
+        localStorage.setItem("userJSON",JSON.stringify(user));
         this.router.navigate(['/']);
       }else{
         this.error = true;
