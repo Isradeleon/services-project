@@ -1,8 +1,13 @@
-<section class="columns" *ngIf="!userData">
+<section class="columns" *ngIf="!userData && !errorData">
   <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
     <i class="fas fa-spinner fa-pulse"></i>
   </div>
 </section>
+
+<app-not-found *ngIf="errorData" 
+  titleMsg = "Error trying to find user!"
+  bodyMsg = "It is possible that this user doesn't exist at jsonplaceholder"></app-not-found>
+
 <section *ngIf="userData" class="profile w3-padding-32">
   
   <section class="w3-container">

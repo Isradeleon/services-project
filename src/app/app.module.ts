@@ -14,6 +14,7 @@ import { TodosComponent } from './components/todos/todos.component';
 import { PhotosComponent } from './components/photos/photos.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GalleryComponent,
     TodosComponent,
     PhotosComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

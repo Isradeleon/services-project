@@ -2,7 +2,7 @@
   
   <div class="w3-content w3-justify" style="max-width:600px">
 
-    <section class="columns" *ngIf="!dataReady">
+    <section class="columns" *ngIf="!dataReady && !errorData">
       <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
         <i class="fas fa-spinner fa-pulse"></i>
       </div>
@@ -33,6 +33,11 @@
     <br><br>
 
     <app-comments *ngIf="dataReady" [postId]="post.id" [comments]="post.comments"></app-comments>
+
+    <app-not-found *ngIf="errorData" 
+      titleMsg = "Error trying to find post!"
+      bodyMsg = "It is possible that this post doesn't exist at jsonplaceholder"></app-not-found>
+
   </div>
 
 </div>

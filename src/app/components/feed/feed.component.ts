@@ -76,8 +76,15 @@ export class FeedComponent implements OnInit {
   }
 
   removeMe(i) {
+    const postToDelete: Post = this.posts[i];
+
     this.posts.splice(i, 1);
     this.staggeringPosts.splice(i, 1);
+
+    this.clientService.deleteData("posts/"+postToDelete.id).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
   }
 
   ngOnInit() {
@@ -116,7 +123,7 @@ export class FeedComponent implements OnInit {
         this.body = '';
 
         this.sendingData = false;
-        
+
         this.posts.unshift(res);
 
         this.staggeringPosts.unshift(res);

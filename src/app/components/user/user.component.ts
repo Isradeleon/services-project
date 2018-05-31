@@ -15,6 +15,8 @@ export class UserComponent implements OnInit {
   user: User;
   userData: boolean = false;
 
+  errorData: boolean;
+
   showing: number = 1;
 
   constructor(private route: ActivatedRoute, private clientService: ClientService) { }
@@ -24,16 +26,24 @@ export class UserComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.userData = false;
+      this.errorData = false;
 
       this.clientService
       .getJSONData("users?id="+this.id+"&_embed=posts&_embed=albums&_embed=todos")
-      .subscribe(res => {
-        this.user = res[0];
-        
-        from(this.user.posts).pipe(map(val => val.user = this.user))
-        .subscribe(ending => this.userData = true);
-        
-      });
+      .subscribe(
+        res => {
+          this.user = res[0];
+          
+          if(this.user)
+            from(this.user.posts).pipe(map(val => val.user = this.user))
+            .subscribe(ending => this.userData = true);
+          else
+            this.errorData = true;
+          
+        }, err => {
+          this.errorData = true;
+        }
+      );
 
     });
 

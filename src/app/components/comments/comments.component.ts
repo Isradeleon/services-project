@@ -47,7 +47,6 @@ export class CommentsComponent implements OnInit {
 
         this.sendingData = false;
 
-        console.log(res);
         this.comments.unshift(res);
 
       });

@@ -19,6 +19,8 @@ export class PostComponent implements OnInit {
   user: User;
   dataReady: boolean;
 
+  errorData: boolean;
+
   constructor(private route: ActivatedRoute, private clientService: ClientService) { 
     this.dataReady = false;
   }
@@ -30,10 +32,15 @@ export class PostComponent implements OnInit {
       
       this.clientService
       .getJSONData('posts/'+this.id+'?_expand=user&_embed=comments')
-      .subscribe(res => {
-        this.post = res;
-        this.dataReady = true;
-      });
+      .subscribe(
+        res => {
+          this.post = res;
+          this.dataReady = true;
+        },
+        err => {
+          this.errorData = true;
+        }
+      );
 
     });
   }
