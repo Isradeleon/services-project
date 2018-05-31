@@ -9,13 +9,15 @@ import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './auth.service';
 import { PreventloginService } from './preventlogin.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: FeedComponent, canActivate:[AuthService] },
   { path: 'post/:id', component: PostComponent, canActivate:[AuthService] },
   { path: 'comments/:id', component: CommentsComponent, canActivate:[AuthService] },
   { path: 'user/:id', component: UserComponent, canActivate:[AuthService]  },
-  { path: 'signin', component: LoginComponent, canActivate:[PreventloginService] }
+  { path: 'signin', component: LoginComponent, canActivate:[PreventloginService] },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

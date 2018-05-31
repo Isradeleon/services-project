@@ -12,6 +12,11 @@ export class NotFoundComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(!this.titleMsg)
+      this.titleMsg = "Error trying to find page!";
+
+    if(!this.bodyMsg)
+      this.bodyMsg = "It is possible that this page doesn't exist in this website";
   }
 
 }
