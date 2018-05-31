@@ -1,3 +1,9 @@
+<section class="columns" *ngIf="!dataReady">
+  <div class="column is-half is-offset-one-quarter is-text-centered spinner-loader">
+    <i class="fas fa-spinner fa-pulse"></i>
+  </div>
+</section>
+
 <section *ngIf="dataReady">
 
   <div id="photos">

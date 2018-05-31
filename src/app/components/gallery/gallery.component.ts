@@ -24,4 +24,8 @@ export class GalleryComponent implements OnInit {
     this.album = this.albums[index];
   }
 
+  backToAlbums(){
+    this.album = null;
+  }
+
 }
