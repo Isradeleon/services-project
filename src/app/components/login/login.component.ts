@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   password: string;
 
   dataLoading: boolean;
+  error: boolean;
 
   constructor(
     private clientService: ClientService,
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
         const user: User = res[0];
         localStorage.setItem("userId",""+user.id);
         this.router.navigate(['/']);
+      }else{
+        this.error = true;
       }
 
       this.dataLoading = false;

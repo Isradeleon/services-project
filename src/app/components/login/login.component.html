@@ -21,8 +21,10 @@
           <label>Password</label>
           <input [(ngModel)]="password" class="w3-input w3-border" type="password" name="password" required>
         </div>
-        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom is-loading">Send Message</button>
+        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom is-loading">Sign in</button>
       </form>
+
+      <p *ngIf="error" class="has-text-danger has-text-centered">Error with authentication!</p>
 
     </span>
 
