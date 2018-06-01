@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ClientService } from '../../client.service';
+import { ClientService } from '../../services/client.service';
 
 import { from } from 'rxjs';
 import { filter } from 'rxjs/operators';

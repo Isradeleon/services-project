@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ClientService } from '../../client.service';
+import { ClientService } from '../../services/client.service';
 import { User } from '../../classes/User';
 import { Comment } from '../../classes/Comment';
 

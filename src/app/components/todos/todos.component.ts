@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ClientService } from '../../client.service';
 import { User } from '../../classes/User';
 import { Todo } from '../../classes/Todo';
 
@@ -13,7 +12,7 @@ export class TodosComponent implements OnInit {
 
   @Input() todos: Todo[];
 
-  constructor(private clientService: ClientService) { }
+  constructor() { }
 
   ngOnInit() {
     /*this.clientService.getJSONData("todos?userId="+this.userTodos.id).subscribe(res => {

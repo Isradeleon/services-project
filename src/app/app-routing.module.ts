@@ -7,9 +7,12 @@ import { PostComponent } from './components/post/post.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthService } from './auth.service';
-import { PreventloginService } from './preventlogin.service';
+import { AuthService } from './services/auth.service';
+import { PreventloginService } from './services/preventlogin.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { GalleryComponent } from './components/gallery/gallery.component'
+import { TodosComponent } from './components/todos/todos.component'
+import { PhotosComponent } from './components/photos/photos.component'
 
 const routes: Routes = [
   { path: '', component: FeedComponent, canActivate:[AuthService] },
@@ -18,6 +21,19 @@ const routes: Routes = [
   { path: 'user/:id', component: UserComponent, canActivate:[AuthService]  },
   { path: 'signin', component: LoginComponent, canActivate:[PreventloginService] },
   { path: '**', component: NotFoundComponent }
+];
+
+export const MyComponents = [
+  AppComponent,
+  PostComponent,
+  FeedComponent,
+  CommentsComponent,
+  UserComponent,
+  GalleryComponent,
+  TodosComponent,
+  PhotosComponent,
+  LoginComponent,
+  NotFoundComponent
 ];
 
 @NgModule({
