@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../components/app/app.component';
 import { FeedComponent } from '../components/feed/feed.component';
 import { PostComponent } from '../components/post/post.component';
 import { CommentsComponent } from '../components/comments/comments.component';
@@ -9,7 +9,7 @@ import { UserComponent } from '../components/user/user.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthService } from '../services/auth.service';
 import { PreventloginService } from '../services/preventlogin.service';
-import { NotFoundComponent } from '../not-found/not-found.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { GalleryComponent } from '../components/gallery/gallery.component'
 import { TodosComponent } from '../components/todos/todos.component'
 import { PhotosComponent } from '../components/photos/photos.component'
